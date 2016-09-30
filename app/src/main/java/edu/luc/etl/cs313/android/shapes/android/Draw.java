@@ -17,9 +17,9 @@ public class Draw implements Visitor<Void> {
 	private final Paint paint;
 
 	public Draw(final Canvas canvas, final Paint paint) {
-		this.canvas = null; // FIXME
-		this.paint = null; // FIXME
-		paint.setStyle(Style.STROKE);
+			this.canvas = canvas; //FIXME // it changed it from NULL to canvas it works!!
+			this.paint = paint ; // FIXME same thing above and it works! it draws in genymotion
+			paint.setStyle(Style.STROKE);
 	}
 
 	@Override
