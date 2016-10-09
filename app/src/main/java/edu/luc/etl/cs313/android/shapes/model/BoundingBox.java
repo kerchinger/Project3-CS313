@@ -16,9 +16,7 @@ public class BoundingBox implements Visitor<Location> {
 	}
 
 	@Override
-	public Location onFill(final Fill f) {
-		return null;
-	}
+	public Location onFill(final Fill f) {return null;}
 
 	@Override
 	public Location onGroup(final Group g) {

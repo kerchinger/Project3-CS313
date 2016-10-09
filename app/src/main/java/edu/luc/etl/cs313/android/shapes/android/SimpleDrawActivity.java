@@ -19,5 +19,5 @@ public class SimpleDrawActivity extends Activity {
   @Override
   public void onStart() {
     super.onStart();
-  }
+  }  // don't really need because we are not invoking anything in this at all really
 }
