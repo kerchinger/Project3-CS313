@@ -54,7 +54,6 @@ public class Draw implements Visitor<Void> {
 
 	@Override
 	public Void onRectangle(final Rectangle r) {
-
 		return null;
 	}
 
