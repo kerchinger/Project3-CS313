@@ -14,9 +14,7 @@ public class Size implements Visitor<Integer> {
 	}
 
 	@Override
-	public Integer onCircle(final Circle c) {
-		return -1;
-	}
+	public Integer onCircle(final Circle c) {return -1; }
 
 	@Override
 	public Integer onGroup(final Group g) {

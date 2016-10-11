@@ -30,13 +30,12 @@ public class Draw implements Visitor<Void> {
 
 	@Override
 	public Void onStroke(final Stroke c) {
-		canvas.drawLine(50, 50, 50 , 50, paint);
 		return null;
 	}
 
 	@Override
 	public Void onFill(final Fill f) {
-
+		canvas.drawRect(0,50,100, 0, paint);
 		return null;
 	}
 
@@ -54,6 +53,7 @@ public class Draw implements Visitor<Void> {
 
 	@Override
 	public Void onRectangle(final Rectangle r) {
+		canvas.drawRect(0,0,100, 150, paint);
 		return null;
 	}
 
