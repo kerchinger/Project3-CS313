@@ -29,12 +29,13 @@ public class Draw implements Visitor<Void> {
 	}
 
 	@Override
-	public Void onStroke(final Stroke c) {
+	public Void onStroke(final Stroke c) { // not drawing shape as red, but drew a shape
+		canvas.drawRect(0,0, 80, 120, paint);
 		return null;
 	}
 
 	@Override
-	public Void onFill(final Fill f) {
+	public Void onFill(final Fill f) { // not drawing a filled shape
 		canvas.drawRect(0,50,100, 0, paint);
 		return null;
 	}

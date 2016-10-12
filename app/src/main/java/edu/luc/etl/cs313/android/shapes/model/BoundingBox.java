@@ -21,7 +21,7 @@ public class BoundingBox implements Visitor<Location> {
 	@Override
 	public Location onGroup(final Group g) {
 
-		return null;
+		return new Location(0,0, g); // TODO this doesn't work
 	}
 
 	@Override
@@ -31,7 +31,7 @@ public class BoundingBox implements Visitor<Location> {
 	public Location onRectangle(final Rectangle r) {return new Location(0, 0, r);}// passes TestBpundingBox
 
 	@Override
-	public Location onStroke(final Stroke c) {return new Location(0,0,c.getShape());}// passes TestBpundingBox
+	public Location onStroke(final Stroke c) {return new Location(0,0,c.getShape());}// passes TestBpundingBox I don't kow how accurate the code is
 
 	@Override
 	public Location onOutline(final Outline o) {
@@ -40,6 +40,7 @@ public class BoundingBox implements Visitor<Location> {
 
 	@Override
 	public Location onPolygon(final Polygon s) {
-		return null;
+
+		return new Location(0,0,s); //TODO this deosn't work
 	}
 }
