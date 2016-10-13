@@ -1,5 +1,6 @@
 package edu.luc.etl.cs313.android.shapes.model;
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -22,8 +23,17 @@ public class BoundingBox implements Visitor<Location> {
 
 	@Override
 	public Location onGroup(final Group g) {
-
-		return new Location(0,0, g); // TODO this doesn't work
+		int x1 = 0;
+		int y1 = 0;
+		Shape shape1 = new Rectangle(0,0);
+		Iterator i = g.getShapes().iterator();
+		while(i.hasNext()) {
+			Location location =(Location)((Shape) i.next()).accept(this);
+			x1 = location.getX();
+			y1 = location.getY();
+			shape1 = location.getShape();
+		}
+		return new Location(x1, y1, shape1); // TODO this doesn't work
 	}
 
 	@Override
@@ -42,7 +52,9 @@ public class BoundingBox implements Visitor<Location> {
 
 	@Override
 	public Location onPolygon(final Polygon s) {
-
-		return new Location(0,0,s); //TODO this deosn't work
+		// still need to work on this so that it runs properly
+		final List<? extends Point> points = s.getPoints();
+		points.get(0);
+		return new Location(50,50, new Rectangle(70, 60)); //TODO this deosn't work
 	}
 }

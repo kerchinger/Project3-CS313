@@ -50,7 +50,8 @@ public class Draw implements Visitor<Void> {
 
 	@Override
 	public Void onLocation(final Location l) {
-
+		canvas.translate(0,0); // moves origin
+		canvas.drawRect(0,0,l.getY(),l.getX(), paint); // doesn't pass
 		return null;
 	}
 
@@ -62,7 +63,7 @@ public class Draw implements Visitor<Void> {
 
 	@Override
 	public Void onOutline(Outline o) {
-
+	canvas.drawRect(0,0,0,0,paint);
 		return null;
 	}
 
@@ -70,7 +71,6 @@ public class Draw implements Visitor<Void> {
 	public Void onPolygon(final Polygon s) {
 
 		final float[] pts = null;
-
 		canvas.drawLines(pts, paint);
 		return null;
 	}
