@@ -8,16 +8,15 @@ import android.graphics.Color;
  */
 public class Stroke implements Shape {
 
-	// TODO entirely your job
 	protected final Shape shape;
 	private final int color;
 
 	public Stroke(final int color, final Shape shape) { // IDK how correct this is but it passes test
-		this.color = getColor();
+		this.color = color;
 		this.shape = shape;
 	}
 
-	public int getColor() {return Color.RED;}
+	public int getColor() { return color; }
 
 	public Shape getShape() {
 		return shape;
