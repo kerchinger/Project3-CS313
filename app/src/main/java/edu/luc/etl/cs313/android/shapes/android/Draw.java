@@ -1,6 +1,7 @@
 package edu.luc.etl.cs313.android.shapes.android;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.Rect;
@@ -15,8 +16,6 @@ import edu.luc.etl.cs313.android.shapes.model.*;
  * A Visitor for drawing a shape to an Android canvas.
  */
 public class Draw implements Visitor<Void> {
-
-	// TODO entirely your job (except onCircle)
 
 	private final Canvas canvas;
 
@@ -36,15 +35,24 @@ public class Draw implements Visitor<Void> {
 
 	@Override
 	public Void onStroke(final Stroke c) { // it works and draws a red outlines rectangle
+		int defaultColor = paint.getColor(); //keeps original color
 		paint.setColor(c.getColor());
 		c.getShape().accept(this);
+		paint.setColor(defaultColor);	//resets color
 		return null;
 	}
 
 	@Override
 	public Void onFill(final Fill f) { // it fills a rectangle with a solid color
-		paint.setStyle(Style.FILL);
+		Style defaultStyle = paint.getStyle();	//keeps original style
+		if(paint.getColor() > 0){
+			paint.setStyle(Style.FILL);
+		}
+		else{
+			paint.setStyle(Style.FILL_AND_STROKE);
+		}
 		f.getShape().accept(this);
+		paint.setStyle(defaultStyle);	//resets style
 		return null;
 	}
 
@@ -74,7 +82,10 @@ public class Draw implements Visitor<Void> {
 
 	@Override
 	public Void onOutline(Outline o) {
+		Style defaultStyle = paint.getStyle();	//keeps original style
+		paint.setStyle(Style.STROKE);
 		o.getShape().accept(this);
+		paint.setStyle(defaultStyle);	//resets style
 		return null;
 	}
 
